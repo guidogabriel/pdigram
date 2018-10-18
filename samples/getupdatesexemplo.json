@@ -1,0 +1,94 @@
+{
+    "ok": true,
+    "result": [
+        {
+            "message": {
+                "chat": {
+                    "first_name": "Guido",
+                    "id": 363799008,
+                    "type": "private",
+                    "username": "guidogabriel"
+                },
+                "date": 1539821323,
+                "from": {
+                    "first_name": "Guido",
+                    "id": 363799008,
+                    "is_bot": false,
+                    "language_code": "pt-BR",
+                    "username": "guidogabriel"
+                },
+                "message_id": 9,
+                "text": "oi"
+            },
+            "update_id": 23362382
+        },
+        {
+            "message": {
+                "chat": {
+                    "first_name": "Guido",
+                    "id": 363799008,
+                    "type": "private",
+                    "username": "guidogabriel"
+                },
+                "date": 1539821344,
+                "from": {
+                    "first_name": "Guido",
+                    "id": 363799008,
+                    "is_bot": false,
+                    "language_code": "pt-BR",
+                    "username": "guidogabriel"
+                },
+                "message_id": 10,
+                "text": "guido lindo"
+            },
+            "update_id": 23362383
+        },
+        {
+            "message": {
+                "animation": {
+                    "duration": 1,
+                    "file_id": "CgADBAADdKAAAoUbZAdtd8a8t8zp1wI",
+                    "file_name": "giphy.mp4",
+                    "file_size": 45584,
+                    "height": 480,
+                    "mime_type": "video/mp4",
+                    "thumb": {
+                        "file_id": "AAQEABMjV2EZAATKO-KGZoTm861SAAIC",
+                        "file_size": 2253,
+                        "height": 90,
+                        "width": 90
+                    },
+                    "width": 480
+                },
+                "chat": {
+                    "first_name": "Guido",
+                    "id": 363799008,
+                    "type": "private",
+                    "username": "guidogabriel"
+                },
+                "date": 1539822782,
+                "document": {
+                    "file_id": "CgADBAADdKAAAoUbZAdtd8a8t8zp1wI",
+                    "file_name": "giphy.mp4",
+                    "file_size": 45584,
+                    "mime_type": "video/mp4",
+                    "thumb": {
+                        "file_id": "AAQEABMjV2EZAATKO-KGZoTm861SAAIC",
+                        "file_size": 2253,
+                        "height": 90,
+                        "width": 90
+                    }
+                },
+                "from": {
+                    "first_name": "Guido",
+                    "id": 363799008,
+                    "is_bot": false,
+                    "language_code": "pt-BR",
+                    "username": "guidogabriel"
+                },
+                "message_id": 11
+            },
+            "update_id": 23362384
+        }
+    ]
+}
