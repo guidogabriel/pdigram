@@ -292,10 +292,10 @@
       <type>SPECIAL</type>
       <start>Y</start>
       <dummy>N</dummy>
-      <repeat>N</repeat>
-      <schedulerType>0</schedulerType>
-      <intervalSeconds>0</intervalSeconds>
-      <intervalMinutes>60</intervalMinutes>
+      <repeat>Y</repeat>
+      <schedulerType>1</schedulerType>
+      <intervalSeconds>5</intervalSeconds>
+      <intervalMinutes>0</intervalMinutes>
       <hour>12</hour>
       <minutes>0</minutes>
       <weekDay>1</weekDay>
@@ -342,7 +342,7 @@
       <yloc>224</yloc>
     </entry>
     <entry>
-      <name>Transformation</name>
+      <name>salvar max message id</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -373,8 +373,50 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
+      <xloc>672</xloc>
       <yloc>224</yloc>
+    </entry>
+    <entry>
+      <name>&#x24;&#x7b;ATUALIZAR_ULTIMO_ID_MESSAGE_LIDO&#x7d; &#x3f;</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname/>
+      <variablename>&#x24;&#x7b;ATUALIZAR_ULTIMO_ID_MESSAGE_LIDO&#x7d;</variablename>
+      <fieldtype>boolean</fieldtype>
+      <mask/>
+      <comparevalue/>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>true</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>496</xloc>
+      <yloc>224</yloc>
+    </entry>
+    <entry>
+      <name>DUMMY</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>N</start>
+      <dummy>Y</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>496</xloc>
+      <yloc>352</yloc>
     </entry>
   </entries>
   <hops>
@@ -389,11 +431,29 @@
     </hop>
     <hop>
       <from>consultar</from>
-      <to>Transformation</to>
+      <to>&#x24;&#x7b;ATUALIZAR_ULTIMO_ID_MESSAGE_LIDO&#x7d; &#x3f;</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>&#x24;&#x7b;ATUALIZAR_ULTIMO_ID_MESSAGE_LIDO&#x7d; &#x3f;</from>
+      <to>salvar max message id</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>&#x24;&#x7b;ATUALIZAR_ULTIMO_ID_MESSAGE_LIDO&#x7d; &#x3f;</from>
+      <to>DUMMY</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>

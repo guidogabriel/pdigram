@@ -435,11 +435,11 @@
   </info>
   <notepads>
     <notepad>
-      <note>Quando n&#xe3;o &#xe9; uma msg de texto &#x28;um gif, por exemplo, o fluxo vai ser direcionado pra ca&#x29;&#xd;&#xa;</note>
-      <xloc>528</xloc>
-      <yloc>224</yloc>
-      <width>480</width>
-      <heigth>41</heigth>
+      <note>Quando n&#xe3;o &#xe9; uma msg de texto &#xd;&#xa;&#x28;um gif, por exemplo, o fluxo vai ser direcionado pra ca&#x29;&#xd;&#xa;</note>
+      <xloc>640</xloc>
+      <yloc>240</yloc>
+      <width>304</width>
+      <heigth>57</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -460,12 +460,12 @@
     <hop>
       <from>Generate Rows</from>
       <to>REST Client</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>REST Client</from>
       <to>JSON Input ok e result</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>JSON Input ok e result</from>
@@ -500,21 +500,21 @@
     <hop>
       <from>Generate Rows</from>
       <to>REST Client sem proxy</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>REST Client sem proxy</from>
       <to>JSON Input ok e result</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
-      <from>Switch &#x2f; Case</from>
+      <from>Switch &#x2f; Case - Comandos padronizados</from>
       <to>relatorio 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch &#x2f; Case</from>
-      <to>default</to>
+      <from>Switch &#x2f; Case - Comandos padronizados</from>
+      <to>mensagem qualquer</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -554,12 +554,7 @@
     </hop>
     <hop>
       <from>mensagens nao lidas - responder</from>
-      <to>Switch &#x2f; Case</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>REST Client sem proxy respndendo ao chat</from>
-      <to>Sort rows</to>
+      <to>Switch &#x2f; Case - Comandos padronizados</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -578,8 +573,93 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ultima linha - max message id</from>
+      <from>Switch &#x2f; Case - Comandos padronizados</from>
+      <to>relatorio 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>relatorio 2</from>
+      <to>REST Client sem proxy respndendo ao chat 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>mensagem qualquer</from>
+      <to>REST Client sem proxy respndendo ao chat 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REST Client sem proxy respndendo ao chat 3</from>
+      <to>Dummy &#x28;do nothing&#x29;</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REST Client sem proxy respndendo ao chat 2</from>
+      <to>Dummy &#x28;do nothing&#x29;</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>REST Client sem proxy respndendo ao chat</from>
+      <to>Dummy &#x28;do nothing&#x29;</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy &#x28;do nothing&#x29;</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set Variables false</from>
       <to>Copy rows to result</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>Set Variables false</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ultima linha - max message id</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Filter rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>Set Variables true</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set Variables true</from>
+      <to>Copy rows to result</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Detect empty stream</from>
+      <to>Filter rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>mensagens nao lidas - responder</from>
+      <to>se chegar aqui &#xe9; que nao tem mensagens que devem ser respondidas</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>se chegar aqui &#xe9; que nao tem mensagens que devem ser respondidas</from>
+      <to>Detect empty stream</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 4</from>
+      <to>Add constants 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants 2</from>
+      <to>Set Variables false 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -709,7 +789,7 @@
     </remotesteps>
     <GUI>
       <xloc>384</xloc>
-      <yloc>544</yloc>
+      <yloc>800</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -731,7 +811,7 @@
 <condition>
  <negated>N</negated>
  <leftvalue>message_id</leftvalue>
- <function>&#x3e;&#x3d;</function>
+ <function>&#x3e;</function>
  <rightvalue>ultimo_message_id_lido</rightvalue>
  </condition>
     </compare>
@@ -1363,11 +1443,11 @@
     <methodFieldName/>
     <urlField>url</urlField>
     <bodyField/>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
+    <httpLogin>03153196311</httpLogin>
+    <httpPassword>Encrypted 2be98afc829c69185be0aa67fc9c3fe8b</httpPassword>
+    <proxyHost>10.8.14.22</proxyHost>
+    <proxyPort>6588</proxyPort>
+    <preemptive>Y</preemptive>
     <trustStoreFile/>
     <trustStorePassword>Encrypted </trustStorePassword>
     <headers>
@@ -1390,8 +1470,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>464</yloc>
+      <xloc>800</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1476,14 +1556,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>464</yloc>
+      <xloc>832</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Switch &#x2f; Case</name>
+    <name>Switch &#x2f; Case - Comandos padronizados</name>
     <type>SwitchCase</type>
     <description/>
     <distribute>Y</distribute>
@@ -1499,9 +1579,11 @@
 <case_value_format/>
 <case_value_decimal/>
 <case_value_group/>
-<default_target_step>default</default_target_step>
+<default_target_step>mensagem qualquer</default_target_step>
 <cases><case><value>&#x2f;relatorio1</value>
 <target_step>relatorio 1</target_step>
+</case><case><value>&#x2f;relatorio2</value>
+<target_step>relatorio 2</target_step>
 </case></cases>    <cluster_schema/>
     <remotesteps>
       <input>
@@ -1621,7 +1703,7 @@
     </step>
 
   <step>
-    <name>default</name>
+    <name>mensagem qualquer</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1639,8 +1721,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>496</yloc>
+      <xloc>1248</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1674,7 +1756,7 @@
     <name>mensagens nao lidas - responder</name>
     <type>Dummy</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1689,7 +1771,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1264</xloc>
+      <xloc>1456</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1739,8 +1821,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>400</yloc>
+      <xloc>944</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1766,6 +1848,484 @@
     <GUI>
       <xloc>192</xloc>
       <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>relatorio 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>REST Client sem proxy respndendo ao chat 2</name>
+    <type>Rest</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <applicationType>TEXT PLAIN</applicationType>
+    <method>GET</method>
+    <url>https&#x3a;&#x2f;&#x2f;api.telegram.org&#x2f;bot714346816&#x3a;AAFio0aZ8l99Eywa5wzukNoMGaOl-HIYERU&#x2f;sendMessage&#x3f;chat_id&#x3d;363799008&#x26;text&#x3d;vocedigitouocomando&#x2f;relatorio2</url>
+    <urlInField>N</urlInField>
+    <dynamicMethod>N</dynamicMethod>
+    <methodFieldName/>
+    <urlField>url</urlField>
+    <bodyField/>
+    <httpLogin>03153196311</httpLogin>
+    <httpPassword>Encrypted 2be98afc829c69185be0aa67fc9c3fe8b</httpPassword>
+    <proxyHost>10.8.14.22</proxyHost>
+    <proxyPort>6588</proxyPort>
+    <preemptive>Y</preemptive>
+    <trustStoreFile/>
+    <trustStorePassword>Encrypted </trustStorePassword>
+    <headers>
+      </headers>
+    <parameters>
+      </parameters>
+    <matrixParameters>
+      </matrixParameters>
+    <result>
+      <name>result_request</name>
+      <code/>
+      <response_time/>
+      <response_header/>
+      </result>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1104</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>REST Client sem proxy respndendo ao chat 3</name>
+    <type>Rest</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <applicationType>TEXT PLAIN</applicationType>
+    <method>GET</method>
+    <url>https&#x3a;&#x2f;&#x2f;api.telegram.org&#x2f;bot714346816&#x3a;AAFio0aZ8l99Eywa5wzukNoMGaOl-HIYERU&#x2f;sendMessage&#x3f;chat_id&#x3d;363799008&#x26;text&#x3d;vocedigitouocomando&#x2f;msgqualquer</url>
+    <urlInField>N</urlInField>
+    <dynamicMethod>N</dynamicMethod>
+    <methodFieldName/>
+    <urlField>url</urlField>
+    <bodyField/>
+    <httpLogin>03153196311</httpLogin>
+    <httpPassword>Encrypted 2be98afc829c69185be0aa67fc9c3fe8b</httpPassword>
+    <proxyHost>10.8.14.22</proxyHost>
+    <proxyPort>6588</proxyPort>
+    <preemptive>Y</preemptive>
+    <trustStoreFile/>
+    <trustStorePassword>Encrypted </trustStorePassword>
+    <headers>
+      </headers>
+    <parameters>
+      </parameters>
+    <matrixParameters>
+      </matrixParameters>
+    <result>
+      <name>result_request</name>
+      <code/>
+      <response_time/>
+      <response_header/>
+      </result>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1404</xloc>
+      <yloc>594</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1104</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Set Variables false</name>
+    <type>SetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <field_name>false</field_name>
+        <variable_name>ATUALIZAR_ULTIMO_ID_MESSAGE_LIDO</variable_name>
+        <variable_type>JVM</variable_type>
+        <default_value/>
+        </field>
+      </fields>
+    <use_formatting>Y</use_formatting>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows 3</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to>Set Variables false</send_true_to>
+<send_false_to>Set Variables true</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>message_id</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue>ultimo_message_id_lido</rightvalue>
+ </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>true</name>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>true</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>false</name>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>false</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Set Variables true</name>
+    <type>SetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <field_name>true</field_name>
+        <variable_name>ATUALIZAR_ULTIMO_ID_MESSAGE_LIDO</variable_name>
+        <variable_type>JVM</variable_type>
+        <default_value/>
+        </field>
+      </fields>
+    <use_formatting>Y</use_formatting>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>720</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Detect empty stream</name>
+    <type>DetectEmptyStream</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1600</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows 4</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+<send_true_to>Add constants 2</send_true_to>
+<send_false_to/>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>message_id</leftvalue>
+ <function>IS NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1648</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>se chegar aqui &#xe9; que nao tem mensagens que devem ser respondidas</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1536</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Set Variables false 2</name>
+    <type>SetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <field_name>false</field_name>
+        <variable_name>ATUALIZAR_ULTIMO_ID_MESSAGE_LIDO</variable_name>
+        <variable_type>JVM</variable_type>
+        <default_value>false</default_value>
+        </field>
+      </fields>
+    <use_formatting>Y</use_formatting>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1468</xloc>
+      <yloc>729</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>Add constants 2</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>true</name>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>true</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>false</name>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>false</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1388</xloc>
+      <yloc>728</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
